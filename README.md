@@ -1,2 +1,4 @@
 # BiFo-Net
-A Lightweight Bifocal Convolutional Attention Network for Acoustic Scene Classification
+Replacing Recurrence with Bi-Focal Attention for Low-Complexity Acoustic Scene Classification
+
+### Training Steps Overview
