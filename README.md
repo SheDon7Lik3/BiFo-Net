@@ -22,16 +22,17 @@ End-to-end instructions for reproducing CochlScene pre-training and TAU/DCASE25 
 ## 2. Dataset Preparation
 
 ### 2.1 Directory Layout
-Both dataset loaders expect absolute paths defined at the top of `dataset/dcase25.py` and `dataset/cochlsence.py`.
+Set the `dataset_dir` constants at the top of `dataset/dcase25.py` and `dataset/cochlsence.py` to the absolute paths of your local datasets. For example:
 
 ```python
-dataset_dir = "/content/TAU-urban-acoustic-scenes-2022-mobile-development"
-dataset_dir = "/content/CochlScene_1s_middle_simple"
+# dataset/dcase25.py
+dataset_dir = "/mnt/datasets/TAU-urban-acoustic-scenes-2022-mobile-development"
+
+# dataset/cochlsence.py
+dataset_dir = "/mnt/datasets/CochlScene_1s_middle_simple"
 ```
 
-Update these to your local storage (e.g., `/mnt/datasets/TAU2022`):
-- Edit the constants directly, or
-- Keep defaults and create symlinks: `ln -s /mnt/datasets/TAU2022 /content/TAU-urban-acoustic-scenes-2022-mobile-development`.
+Updating these constants is usually the quickest option, but you can also keep the defaults and create symlinks (e.g., `ln -s /mnt/datasets/TAU2022 /content/TAU-urban-acoustic-scenes-2022-mobile-development`) if that better fits your environment.
 
 Each directory must match the official release structure:
 - **TAU**: `meta.csv`, `split_setup/*.csv`, `audio/train/device_x/...`
