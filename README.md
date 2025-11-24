@@ -1,22 +1,22 @@
-# BiFo-Net
-Replacing Recurrence with Bi-Focal Attention for Low-Complexity Acoustic Scene Classification
-
 # Training Guide
 
 End-to-end instructions for reproducing CochlScene pre-training and TAU/DCASE25 fine-tuning runs.
 
 ## 1. Prerequisites
-- Python 3.9+ with CUDA-capable GPU (16 GB VRAM recommended for batch 256; lower batches work on smaller cards).
-- System packages: `ffmpeg` (torchaudio backend), `sox` optional for quick audio checks.
-- Python packages (install inside a virtualenv/conda env):
+- Recommended environment: Google Colab with an L4 GPU runtime.
+- Run the following commands to satisfy all system and Python dependencies:
   ```bash
-  pip install --upgrade pip
-  pip install torch torchaudio pytorch-lightning==2.1.* transformers wandb librosa pandas scipy scikit-learn soundfile einops
-  ```
-  *If you need CPU-only wheels, consult the official PyTorch install matrix.*
-- WandB account (optional but scripts expect it). Login once per machine:
-  ```bash
-  wandb login
+  !apt-get update && apt-get install -y sox libsox-fmt-all
+  !sudo apt install aria2
+  !pip install sox
+  !pip install pytorch_lightning
+  !pip install torchinfo
+  !pip install av
+  !pip install onnx
+  !pip install onnxscript
+  !pip install GPUtil
+  !pip install audb
+  !pip install torchcodec
   ```
 
 ## 2. Dataset Preparation
@@ -117,4 +117,3 @@ Key differences vs. CochlScene:
 - **WandB opt-out**: set `WANDB_MODE=offline` or `WANDB_DISABLED=true` before launching if you cannot log remotely. Metrics will still print locally.
 
 You should now be able to launch pre-training on CochlScene, fine-tune on TAU/DCASE25, and reproduce the reported metrics end to end.
-
