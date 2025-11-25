@@ -1,7 +1,5 @@
 # Training Guide
 
-End-to-end instructions for reproducing CochlScene pre-training and TAU/DCASE25 fine-tuning runs.
-
 ## 1. Prerequisites
 - Recommended environment: Google Colab with an L4 GPU runtime.
 - Run the following commands to satisfy all system and Python dependencies:
